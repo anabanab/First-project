@@ -42,7 +42,7 @@ def show_alarms():
         input("Tryck valfri tangent för att gå tillbaka till huvudmenyn.")
         return
     else:
-        # Sortera och skriv ut alla larm
+        # Funktionen för att sortera och skriva ut alla larm
         for alarm_type, level in sorted(configured_alarms):
             print(f"{alarm_type} larm {level}%")
     

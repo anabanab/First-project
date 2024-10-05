@@ -26,7 +26,7 @@ def print_huvud_meny():
 
         elif val == "3":
             print("Du har skapat larm")
-            larm.print_alarm_menu()     # Visar larmmenyn
+            larm.print_alarm_menu()     # Visar menyn för larm
             
            
         elif val == "4":
@@ -36,11 +36,10 @@ def print_huvud_meny():
 
         elif val == "5":
             print("Du har startat övervakningsläge")
-            # Här kan du lägga till kod för att starta övervakningsläget
-
+            
         elif val == "6":
             print("Avslutar")
-            break  # Avsluta loopen och programmet
+            break  # Avsluta loopen
         else: 
             print("Ogiltigt val, försök igen")
 
