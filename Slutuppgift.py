@@ -35,7 +35,7 @@ def print_huvud_meny():
             
 
         elif val == "5":
-            print("Du har startat övervakningsläge")
+            print("Du har startat övervakningsläge")  # Övervakningen är startad
             
         elif val == "6":
             print("Avslutar")

@@ -22,7 +22,7 @@ def print_alarm_menu():
         else:
             print("Ogiltigt val, försök igen")
 
-# Funktion för att ställa in larmnivå
+# Funktion för att ställa in nivån på larmen
 configured_alarms = [()]
 def set_alarm(typ):  
     while True:
