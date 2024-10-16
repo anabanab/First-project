@@ -36,9 +36,9 @@ class HuvudMeny:
         elif val == "4":
             print("Du har valt att visa larm.")
             self.larm_meny.show_alarms()  # Anropar funktionen för att visa larm
-            self.overvakning_system.trigger_alarms()
         elif val == "5":
             self.overvakning_system.starta_overvakningslage()
+            self.overvakning_system.trigger_alarms()
         elif val == "6":
             self.overvakning_system.stoppa_overvakning()
         elif val == "7":
