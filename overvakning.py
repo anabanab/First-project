@@ -58,7 +58,6 @@ class Overvakning:
         disk_usage = psutil.disk_usage('/')  
         print(f"Disk Usage: {disk_usage.percent}% used")  # Skriver ut hur stor del av disken som används
 
-### fråga FELIX om det är okej om allt under ligger i denna fil
 # *-------------------------------Lägger till larm för konfiguerade larm ***
     def add_alarm(self, alarm):
         self.configured_alarms.append(alarm)  # Lägger till ett nytt larm i listan

@@ -44,7 +44,7 @@ class HuvudMeny:
         elif val == "7":
             print("Avslutar programmet...")
             self.overvakning_system.stoppa_overvakning()
-            exit() # Avslutar programmet
+            exit() # Avslutar programmet *
         else:
             print("Ogiltigt val, försök igen.")
 
