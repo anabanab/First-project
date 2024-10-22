@@ -3,12 +3,12 @@ import larm  # Importerar larmfunktioner
 
 class HuvudMeny:
     def __init__(self):
-        self.overvakning_system = Overvakning()  # Skapar ett objekt av Overvakning
-        self.larm_meny = larm.LarmMeny(self.overvakning_system)  # Skapar ett objekt av LarmMeny
+        self.overvakning_system = Overvakning()  
+        self.larm_meny = larm.LarmMeny()  
         self.overvakning_aktiv = False  # För att övervakningen inte ska starta automatiskt 
-        self.overvakning_pa = False  # För att kolla om övervakningen är på eller inte
+        self.overvakning_pa = False  # Kollar om övervakningen är på eller inte
 
-    def visa_meny(self):  # Visar huvudmenyn och hanterar val
+    def visa_meny(self):  
         while True:
             print("HUVUDMENY")
             print("1. Aktivera övervakningen")
@@ -37,14 +37,13 @@ class HuvudMeny:
             print("Du har valt att visa larm.")
             self.larm_meny.show_alarms()  # Anropar funktionen för att visa larm
         elif val == "5":
-            self.overvakning_system.starta_overvakningslage()
-            self.overvakning_system.trigger_alarms()
+            self.overvakning_system.starta_overvakningslage()   # Startar övervakningsläge
         elif val == "6":
             self.overvakning_system.stoppa_overvakning()
         elif val == "7":
             print("Avslutar programmet...")
             self.overvakning_system.stoppa_overvakning()
-            exit() # Avslutar programmet *
+            exit() # Avslutar programmet
         else:
             print("Ogiltigt val, försök igen.")
 
