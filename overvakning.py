@@ -12,7 +12,7 @@ class Overvakning:
         self.logger = Logger()
         self.configured_alarms = global_configured_alarms
 
-# Aktiverar övervakningen så inte det startar vid direkt
+# Aktiverar övervakningen så inte det startar vid start
     def aktivera_overvakning(self):
         if not self.overvakning_pa:    # Kollar om övervakningen inte redan är på
             print("Övervakningen är aktiverad och kan starta")

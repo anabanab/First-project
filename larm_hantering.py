@@ -1,15 +1,14 @@
 import json
 from logg import Logger 
-global_configured_alarms = []  # Globala konfigurerade larm 
+global_configured_alarms = []  # Global lista för konfigurerade larm 
 
 class LarmHantering:
     def __init__(self):
         self.larm_fil = "konfigurerade_larm.json"  # Filnamn för larmen
-        self.configured_alarms = [] # Initierar listan för konfigurerade larm
         self.load_alarms()  # Ladda larm vid initiering
         self.logger = Logger()
         
-# Sparar larm till json fil
+# Sparar konfiguerade larm till json fil
     def save_alarms(self):
 # Spara konfigurerade larm till en JSON-fil
         if not global_configured_alarms:  # Kontrollera om det finns larm att spara
@@ -19,7 +18,7 @@ class LarmHantering:
             json.dump(global_configured_alarms, f)
         print("Larm har sparats.")
 
-# Funktion för att ta bort ett specifikt larm.
+# Funktion för att ta bort ett specifikt larm med index
     def remove_alarm(self, index):
         try:
             index = int(input("Ange numret på larmet du vill ta bort: ")) -1
@@ -33,7 +32,7 @@ class LarmHantering:
         except ValueError:
             print("Ogiltigt val. Ange ett giltigt index.")
 
-# Laddar larm från json filen
+# Laddar konfiguerade larm från json filen
     def load_alarms(self):
         try:
             with open(self.larm_fil, 'r') as f:

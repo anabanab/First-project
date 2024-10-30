@@ -6,7 +6,6 @@ from overvakning import Overvakning  # Importerar övervakningsklassen
 class LarmMeny:
     def __init__(self):
         self.larm_hantering = LarmHantering()
-        self.configured_alarms = []
         self.logger = Logger()
         self.overvakning_system = Overvakning()
         
@@ -39,7 +38,7 @@ class LarmMeny:
             else:
                 print("Ogiltigt val, försök igen.")
 
-# Funktion för att konfigurera larm
+# Funktion för att konfigurera larm (cpu, minne och disk)
     def set_alarms(self, typ):
         while True:
             try:
@@ -63,7 +62,6 @@ class LarmMeny:
             
  # Funktion för att visa konfiguerade larmen               
     def show_alarms(self):
-        #Visa alla konfigurerade larm.
         configured_alarms = self.overvakning_system.configured_alarms  # Hämta de senaste larmen
         if not configured_alarms:
             print("Inga konfigurerade larm att visa.")  # Om inga larm finns, visa detta meddelande
