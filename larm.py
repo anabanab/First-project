@@ -5,12 +5,12 @@ from overvakning import Overvakning  # Importerar övervakningsklassen
 
 class LarmMeny:
     def __init__(self):
-        # Listan för att lagra konfigurerade larm
-        self.overvakning_system = Overvakning()
-        self.larm_hantering = LarmHantering()  
+        self.larm_hantering = LarmHantering()
+        self.configured_alarms = []
         self.logger = Logger()
-        self.configured_alarms = self.overvakning_system.configured_alarms  # Ladda larm vid start
-
+        self.overvakning_system = Overvakning()
+        
+# Larmmenyn 
     def alarm_menu(self):
         while True:
             print("Skapa larm")
@@ -19,11 +19,10 @@ class LarmMeny:
             print("3. Diskanvändning")
             print("4. Visa konfigurerade larm")
             print("5. Spara larm")
-            print("6. Ta bort larm")
-            print("7. Gå tillbaka till huvudmenyn")
+            print("6. Gå tillbaka till huvudmenyn")
 
-            val = input("Ange ditt val här (1-7): ")
-
+# Hanterar användarens val
+            val = input("Ange ditt val här (1-6): ")
             if val == "1":
                 self.set_alarms("CPU")
             elif val == "2":
@@ -33,18 +32,14 @@ class LarmMeny:
             elif val == "4":
                 self.show_alarms()  
             elif val == "5":
-                self.larm_hantering.save_alarm(self.configured_alarms)  # Spara larm
+                self.larm_hantering.save_alarms() # Spara larm
                 self.logger.log_event("Larm har sparats.")  # Loggar sparande
             elif val == "6":
-                self.show_alarms()
-                index = int(input("Ange index för larmet att ta bort:")) - 1
-                self.larm_hantering.remove_alarm(index)
-            elif val == "7":
                 break
             else:
                 print("Ogiltigt val, försök igen.")
 
-    # Funktion för att konfigurera larm
+# Funktion för att konfigurera larm
     def set_alarms(self, typ):
         while True:
             try:
@@ -65,23 +60,22 @@ class LarmMeny:
             except ValueError:
                 # Felhantering om användaren anger ett icke-numeriskt värde
                 print("Ogiltigt svar. Ange en siffra mellan 0-100.")
-            finally:
-                print("Koden körs oavsett")
-                
+            
+ # Funktion för att visa konfiguerade larmen               
     def show_alarms(self):
         #Visa alla konfigurerade larm.
-        self.configured_alarms = self.overvakning_system.configured_alarms  # Hämta de senaste larmen
-        if not self.configured_alarms:
+        configured_alarms = self.overvakning_system.configured_alarms  # Hämta de senaste larmen
+        if not configured_alarms:
             print("Inga konfigurerade larm att visa.")  # Om inga larm finns, visa detta meddelande
             input("Tryck valfri tangent för att gå tillbaka till huvudmenyn.")
             return  # Avslutar funktionen om inga larm finns
         # Sorterar och skriver ut alla larm som är konfigurerade ***
-        for alarm_type, level in sorted(self.configured_alarms):
+        for alarm_type, level in sorted(configured_alarms, key=lambda x: (x[0], x[1])):
             print(f"{alarm_type} larm {level}%")  # Skriver ut typ och nivå för varje larm
         input("Tryck Enter för att gå tillbaka till huvudmenyn.")
 
-
-# Om programmet körs direkt, startas larmmenyn (detta körs inte vid import)
 if __name__ == "__main__":
-    # LarmMeny = LarmMeny()
-    pass  # Det kan implementeras senare
+    larm_hantering = LarmHantering()  # Skapar en instans av LarmHantering
+    larm_meny = LarmMeny()  # Skapar en instans av LarmMeny
+    larm_meny.alarm_menu()  # Starta larmmenyn
+  
