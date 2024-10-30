@@ -76,4 +76,4 @@ if __name__ == "__main__":
     larm_hantering = LarmHantering()  # Skapar en instans av LarmHantering
     larm_meny = LarmMeny()  # Skapar en instans av LarmMeny
     larm_meny.alarm_menu()  # Starta larmmenyn
-  
+#----- Skapad av Anab Mohamed Abdullahi

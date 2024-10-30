@@ -10,7 +10,8 @@ class Logger:
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         with open(self.log_file, 'a') as log:  # Öppnar loggfilen och lägger till nya loggar slutet
             log.write(f"{timestamp} - {event}\n") # Loggar tidsstämpeln och händelser
-            
+
 if __name__ == "__main__":
     logger = Logger()
     logger.log_event("Övervakning startad.")  # Loggar när övervakningen startas
+#----- Skapad av Anab Mohamed Abdullahi

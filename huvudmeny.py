@@ -2,7 +2,6 @@ from overvakning import Overvakning  # Importerar övervakningsklassen
 from larm import LarmMeny  # Importerar larmfunktioner
 from larm_hantering import LarmHantering #Importerar larm_hantering 
 
-
 class HuvudMeny:
     def __init__(self):
         self.larm_hantering = LarmHantering() 
@@ -66,3 +65,4 @@ class HuvudMeny:
 if __name__ == "__main__":
     meny = HuvudMeny()  # Skapar en instans av HuvudMeny
     meny.visa_meny()  # Detta startar menyn där användaren kan interagera
+#----- Skapad av Anab Mohamed Abdullahi

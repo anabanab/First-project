@@ -114,4 +114,5 @@ if __name__ == "__main__":
 # Startar övervakningen och anropar funktionerna så att de körs i en seperat tråd
     overvakning.starta_overvakningslage()
     time.sleep(15)  # pausar programmet i 15 sek, övervakningen pågår fortf
-    overvakning.stoppa_overvakning()  
+    overvakning.stoppa_overvakning() 
+#----- Skapad av Anab Mohamed Abdullahi

@@ -46,5 +46,5 @@ class LarmHantering:
             print("Felaktig filformat, kunde inte läsa larm.")
             
 larm_hantering = LarmHantering()
-
+#----- Skapad av Anab Mohamed Abdullahi
 
